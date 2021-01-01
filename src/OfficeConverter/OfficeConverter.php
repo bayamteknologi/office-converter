@@ -39,12 +39,12 @@ class OfficeConverter
      *
      * @throws OfficeConverterException
      */
-    public function convertTo($filename)
+    public function convertTo($filename, $do_check_extension)
     {
         $outputExtension = pathinfo($filename, PATHINFO_EXTENSION);
         $supportedExtensions = $this->getAllowedConverter($this->extension);
 
-        if (!in_array($outputExtension, $supportedExtensions)) {
+        if ($do_check_extension && !in_array($outputExtension, $supportedExtensions)) {
             throw new OfficeConverterException("Output extension({$outputExtension}) not supported for input file({$this->basename})");
         }
 
