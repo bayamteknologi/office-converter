@@ -39,7 +39,7 @@ class OfficeConverter
      *
      * @throws OfficeConverterException
      */
-    public function convertTo($filename, $do_check_extension)
+    public function convertTo($filename, $do_check_extension = true)
     {
         $outputExtension = pathinfo($filename, PATHINFO_EXTENSION);
         $supportedExtensions = $this->getAllowedConverter($this->extension);
